@@ -1,0 +1,123 @@
+/*----------------------------------------------------------*/
+.account-container{
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin: 0px auto 35px auto;
+    width: max-content;
+    height: 593px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    transition: 0.5s ease all;
+    transition-delay: 0.2s;
+    user-select: none;
+}
+/*Entry animation*/
+.acount-fade-in {
+    opacity: 0;
+    margin-top: -35px !important;
+}
+
+.acount-visible {
+    opacity: 1;
+    margin-top: 0px !important;
+}
+/*----------------------------------------------------------*/
+
+.account-left-container{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ChangePage{
+    margin: 20px auto 5px auto;
+    border-bottom: 1px solid #cecece;
+    color: #fff;
+    width: max-content;
+    transition: 0.1s ease;
+    &:hover{
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.588);
+        cursor: pointer;
+    }
+}
+.AccountsInput{
+    padding: 10px;
+    margin: 20px;
+    width: 300px;
+    height: 20px;
+    background: #eeeeee;
+    font-size: 1rem;
+    border: 1px solid #cecece;
+    border-radius: 10px;
+    &:focus{
+        outline: none;
+    }
+}
+.accountForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/*This class is to make sure the password input and eye checkbox are aligned*/
+.pass{
+    display: flex;
+    align-items: center;
+}
+/*--------------------------*/
+/* sign in/up button */
+.Button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #eeeeee;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    margin: 20px;
+    padding: 20px;
+    width: 321.6px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid #cecece;
+    background: linear-gradient(90deg, #ff8000, #b35a00);
+    transition: 0.2s ease;
+    &:hover{
+        cursor: pointer;
+        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.202);
+    }
+}
+/*--------------------------*/
+.account-right-container{
+    max-width: 400px; 
+    object-fit: contain;  
+}
+/*--------------------------*/
+
+
+
+@media (max-width: 990px){
+    .account-right-container{
+        display: none;
+    }
+    .account-container{        
+        border-radius: 0px;
+    }
+    .account-left-container{
+    padding: 20px 0px;
+    }
+}
+
+@media (max-width: 340px){
+    .AccountsInput{
+        width: 270px;
+    }
+    .ChangePage{
+        font-size: 0.9rem;
+    }
+}

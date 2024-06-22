@@ -1,0 +1,33 @@
+.Barre {
+    position: fixed;
+    width: 6.5px;
+    height: 50%;
+    background-color: #e67300;
+    border-radius: 25px;
+    z-index: -2;
+    user-select: none;
+  }
+  
+.dots{
+  position: fixed;
+  font-size: 80px;
+  font-family: 'Montserrat', sans-serif;
+  color: #cc6600;
+  filter: blur(2px);
+  z-index: -3;
+  user-select: none;
+}
+
+.show-moreDots{
+  display: none;
+}
+
+@media only screen and (max-width: 630px) {
+  .hide-barre{
+    display: none;
+  }
+  .show-moreDots{
+    display: block;
+  }
+
+}

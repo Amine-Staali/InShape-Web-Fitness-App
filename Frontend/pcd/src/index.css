@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Titillium+Web:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Montserrat+Subrayada&family=Titillium+Web:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+*{
+  --sb-track-color: #00000000;
+  --sb-thumb-color: #ff8000;
+  --sb-size: 3px;
+}
+*::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 3px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 3px;
+}
+
+body {
+  font-family: 'Comfortaa', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #3c3f45;
+  background-image: url('./assets/bg.png');
+}
+
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color: var(--sb-thumb-color)
+                     var(--sb-track-color);
+  }
+}
+
+.modalButton{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.spinnerContent{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.Links{
+  text-decoration: none;
+  color: inherit;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+  padding: 0px;
+  margin: 0px;
+}
+
+#title{
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #eeeeee;;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  transition: 0.2s all ease ;
+  &:hover{
+      text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.2);
+    }
+}
+
+.title-deco{
+  color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #eeeeee;
+}
+
+.blur-orange {
+  position: fixed;
+  background-color: rgb(253, 120, 43);
+  filter: blur(190px);
+  z-index: -4;
+  width: 300px;
+  height: 500px;
+  animation: blurOrangeAnimation 4s infinite alternate;
+}
+@keyframes blurOrangeAnimation {
+  0% {
+    filter: blur(190px);
+    width: 300px;
+    height: 500px;
+  }
+  50% {
+    filter: blur(170px);
+    width: 400px;
+    height: 600px;
+  }
+  100% {
+    filter: blur(190px);
+    width: 300px;
+    height: 500px;
+  }
+}
+
+
+
+@media only screen and (max-width: 768px) {
+  .blur-orange {
+    filter: blur(100px);
+    width: 100px;
+    height: 300px;
+  }
+  
+  @keyframes blurOrangeAnimation {
+    0% {
+      filter: blur(100px);
+      width: 100px;
+      height: 300px;
+    }
+    50% {
+      filter: blur(80px);
+      width: 200px;
+      height: 400px;
+    }
+    100% {
+      filter: blur(100px);
+      width: 100px;
+      height: 300px;
+    }
+  }
+  
+}

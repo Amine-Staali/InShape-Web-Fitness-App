@@ -1,0 +1,92 @@
+.Layout-Left-Content{
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  transition: 0.4s ease all;
+  &:hover{
+    scale: 1.008;
+  }
+}
+.add{
+  margin: 20px 0px 40px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  max-width: max-content;
+  width: 100%;
+  border-radius: 25px;
+  text-transform: uppercase;
+}
+.add-bg{
+  position: absolute;
+  padding: 10px 20px;
+  background-color: #00000060;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  z-index: -2;
+}
+
+.add-deco{
+  position: absolute;
+  padding: 5px 20px;
+  background-color: #e67300;
+  border-radius: 25px;
+  width: 5.7vw;
+  height: 100%;
+  margin-left: 5px;
+  z-index: -1;
+  transition: margin-left 1s ease;
+}
+.add:hover .add-deco {
+  margin-left: calc(100% - 5.7vw - 5px);
+}
+
+
+.add span{
+  margin-left: 12px;
+  font-family: 'Montserrat', sans-serif;
+  color: #f7f7f7;
+  font-weight: 500;
+  font-size: 1VW;
+}
+
+.Text-add{
+  font-size: 4rem;
+  font-weight: 600;
+  color: #eeeeee;;
+  text-transform: uppercase;
+  transition: 0.2s all ease ;
+  &:hover{
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.2);
+  }
+}
+
+.quote {
+  width: max-content;
+  margin-top: 50px;
+  font-family: 'Titillium Web', sans-serif;
+  text-transform: uppercase;
+  color: #eeeeee;;
+  font-size: 1.3vw;
+  transition: 0.2s all ease;
+
+  &:hover{
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.655);
+  }
+}
+
+  
+@media screen and (max-width: 768px) {
+  .add span{
+    font-size: 2vw;
+  }
+  .quote{
+    display: none;
+  }
+
+}
+  

@@ -1,0 +1,150 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<a href="http://localhost:5173/#/Profile/">
+    <button class="GoBackButton">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="20"
+            width="20"
+            viewBox="0 0 512 512"
+            >
+              <path
+                fill="#ffffff"
+                d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM294.6 135.1c-4.2-4.5-10.1-7.1-16.3-7.1C266 128 256 138 256 150.3V208H160c-17.7 0-32 14.3-32 32v32c0 17.7 14.3 32 32 32h96v57.7c0 12.3 10 22.3 22.3 22.3c6.2 0 12.1-2.6 16.3-7.1l99.9-107.1c3.5-3.8 5.5-8.7 5.5-13.8s-2-10.1-5.5-13.8L294.6 135.1z"
+              />
+        </svg>
+        Go Back
+    </button>
+</a>
+
+<span class="title-program">
+    <span class="title-deco">Workout</span> Program
+</span>
+<div class="exercise" id="exercise">
+</div>
+<div class="Container1">
+    <div class="Recording-container">
+        <div id="videoContainer">
+            <img id="videoElement" src="" />
+            <div id="title"><span class="title-deco">Let's</span> Workout</div>
+            <div id="loading">loading...</div>
+        </div>
+        <div class="navigation">
+            {% if index > 0 %}
+                <a class="buttons" id="previous" href="{% url 'start_workout' day=day index=index|add:'-1' %}?q={{ token }}">
+                    <svg id="rotate" xmlns="http://www.w3.org/2000/svg" height="16" width="10" viewBox="0 0 320 512"><path fill="#ffffff" d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
+                    <span>Previous</span>
+                </a>
+            {% endif %}
+    
+            <div class="recording">
+                <button
+                    id="recordButton"
+                    type="button"
+                    name="record_button"
+                    value="start"
+                    class="recordButton"
+                >
+                    Start
+                </button>
+                <button
+                    id="stopButton"
+                    type="button"
+                    name="record_button"
+                    value="stop"
+                    class="recordButton"
+                    disabled
+                >
+                    Stop
+                </button>
+            </div>
+    
+            {% if workout_status != 'stop' %}
+                <a class="buttons" id="next" href="{% url 'start_workout' day=day index=index|add:1 %}?q={{ token }}">
+                    <span>Next</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="16" width="10" viewBox="0 0 320 512"><path fill="#ffffff" d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
+                </a>
+            {% endif %}
+        </div>
+    </div>
+    <iframe width="480px" height="660px" id="youtube" src="" title="exercise" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+
+<script>
+    const recordButton = document.getElementById("recordButton");
+    const stopButton = document.getElementById("stopButton");
+    const videoElement = document.getElementById("videoElement");
+    const videoContainer = document.getElementById("videoContainer");
+    const loadingText = document.getElementById("loading");
+    const title = document.getElementById("title");
+    const next = document.getElementById("next");
+    const previous = document.getElementById("previous");
+    const HrefNext = next?.getAttribute('href') || null;
+    const HrefPrevious = previous?.getAttribute('href') || null;
+    
+
+    const selected_exercise = JSON.parse("{{ selected_exercise|escapejs }}");
+    const program = JSON.parse("{{ program|escapejs }}");
+    const day = "{{ day }}";
+    //add the url to the instructif video
+    const youtubeURLS = {
+        "pushup" : "https://www.youtube.com/embed/0pkjOk0EiAk",
+        "squat" :   "https://www.youtube.com/embed/MuvB_F2ynD4",
+        "situp" : "https://www.youtube.com/embed/jDwoBqPH0jk",
+        "superman pull down" : "https://www.youtube.com/embed/gAV_qIi53eo",
+        "bicep curl" : "https://www.youtube.com/embed/ykJmrZ5v0Oo",
+        "bench dip" : "https://www.youtube.com/embed/yvAzWxRsnqU",
+        "kettlebell swing" : "https://www.youtube.com/embed/1cVT3ee9mgU",
+    }
+    const youtubeElement = document.getElementById("youtube")
+    for (let exercises_key in youtubeURLS) {
+    if (selected_exercise.name.toLowerCase().includes(exercises_key.toLowerCase())) {
+        youtubeElement.src = youtubeURLS[exercises_key];
+        break;
+    }
+    }
+
+    const mode = "{{ mode }}";
+    const url = "{% url 'video_feed' %}?selected_exercise=" + encodeURIComponent(JSON.stringify(selected_exercise)) + "&mode=" + mode;
+
+    recordButton.addEventListener("click", () => {
+        recordButton.disabled = true;
+        stopButton.disabled = false;
+        stopButton.style.display="block";
+        recordButton.style.display="none";
+        title.style.display="none";
+        loadingText.style.display = "block"; 
+        videoElement.style.display = "block";
+        videoElement.src = url;
+        next?.removeAttribute('href');
+        previous?.removeAttribute('href');
+    });
+    videoElement.addEventListener("load", () => {
+        loadingText.style.display = "none";
+    });
+
+    stopButton.addEventListener("click", () => {
+        recordButton.disabled = false;
+        stopButton.disabled = true;
+        stopButton.style.display="none";
+        recordButton.style.display="block";
+        title.style.display="block";
+        videoElement.src = "";
+        videoElement.style.display = "none";
+        loadingText.style.display = "none"; 
+        next?.setAttribute('href', HrefNext);
+        previous?.setAttribute('href', HrefPrevious)
+    });
+
+
+    // Function to Render workout program
+
+    const exerciseContent = document.getElementById("exercise");
+    exerciseContent.innerHTML = `
+    <span> 
+        ${selected_exercise.name} (Reps : <span class="reps">${selected_exercise.reps}</span>, Sets : <span class="sets">${selected_exercise.sets})</span>
+    </span>`;
+</script>
+{% endblock content %}

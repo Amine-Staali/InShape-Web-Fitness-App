@@ -1,0 +1,294 @@
+.HealthForm{
+    margin: auto;
+    user-select: none;
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    width: 100%; 
+    max-width: 580px;
+    box-sizing: border-box;
+    padding: 10px;
+}
+.insideFormContainer{
+    border-top: 3px solid #c6c6c6fe;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 15px;
+    box-sizing: border-box;
+    margin: auto;
+    max-width: 580px;
+    height: 475px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.insideFormContainer::-webkit-scrollbar-thumb {
+    background: transparent !important;
+}
+
+.HealthFormTitle{
+    padding-bottom: 10px;
+    font-size: 3rem !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 0px !important;
+}
+
+.GoBackButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #eeeeee;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    margin: 0px auto 10px 0px;    
+    padding: 15px;
+    width: max-content;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #cecece;
+    background: linear-gradient(90deg, #ff8000, #b35a00);
+    transition: 0.2s ease;
+    &:hover{
+        cursor: pointer;
+        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.202);
+    }
+}
+.GoBackButton svg{
+    transform: rotate(180deg);
+}
+
+.HealthFormItem span{
+    display: block;
+    width: 100px;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.HealthFormItem{
+    display: flex;
+    align-items: center;
+    margin: 15px 0px;
+    color: #ffffff;
+    font-size: 1.2rem;
+}
+
+.HealthFormItem label{
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+}
+input[type=radio]{
+    accent-color: #ff9933;  
+}
+.HealthFormItem input[type=number]{
+    padding: 4px 15px;
+    text-align: center;
+    width: 50px;
+    font-size: 1.1rem;
+    border: none;
+    border: 3px solid #ff9933;
+    border-radius: 20px;
+    color: #000;
+    background-color: #ffffff;
+    outline: none;
+ }
+ 
+.organizeInput{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+.organizeSelectionInput{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+.organizeSelectionInput label{
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    color: #ffffff;
+}
+.textareaFields{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.textareaFields span{
+    width: 50%;
+    display: block;
+}
+.textareaFields textarea{
+    resize: none;
+    padding: 5px;
+    font-size: 0.9rem;
+    font-family: 'Montserrat', sans-serif;
+    width: 45%;
+    height: 80px;
+    margin: auto;
+    outline: none;
+    border: none;
+    border: 3px solid #ff9933;
+    border-radius: 5px;
+}
+textarea::placeholder {
+    color: #999;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+}
+.multiSelectInputField{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    color: #ffffff;
+}
+.multiSelectInputField-title{
+    display: block;
+    margin: 40px 0px 20px 0px;
+
+}
+.multiSelectInput {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 10px 10px;
+    flex-wrap: wrap;
+}
+.newFlex{
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.multiSelectInput label {
+    position: relative;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.multiselectItem {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+    display: block;
+    box-sizing: border-box;
+    background-image: url('../../assets/bg.png');
+    border: 1px solid #ffffff;
+    border-radius: 4px;
+
+}
+
+.multiSelectInput input{
+    opacity: 0;
+    position: absolute;
+    cursor: pointer;
+    width: 100%;
+    height: 35px;
+    z-index: 2;
+}
+
+.multiSelectInput input:checked ~ .multiselectItem {
+    background: linear-gradient(#ff9933, #e66465);
+}
+
+.HealthFormFinished{
+    display: block !important;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border-top: 2px solid #ffffff;
+    margin-top: 40px !important;
+}
+.HealthFormSubmit-Button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #eeeeee;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    margin: 20px auto;
+    padding: 20px;
+    width: 80%;
+    height: 40px;
+    border-radius: 10px;
+    border: 2px solid #cecece;
+    background: linear-gradient(#ff9933, #e66465);
+    transition: 0.2s ease;
+    &:hover{
+        cursor: pointer;
+        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.202);
+    }
+}
+
+
+@keyframes popup {
+    0% {
+      opacity: 0;
+      top: 5%;
+    }
+    100% {
+      opacity: 1;
+      top: 10%;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .username{
+        font-size: 9vw;
+    }
+    .HealthForm{
+        width: 80%;
+    }
+    .HealthFormTitle{
+        font-size: 9vw !important;
+    }
+    .HealthFormFinished{
+        font-size: 8vw !important;
+    }
+    .organizeInput{
+        display: block;
+    }
+
+    .multiSelectInput{
+        font-size: 0.65rem;
+    }
+    .HealthForm-fade-in {
+        margin-top: -10px;
+    }
+    .HealthForm-visible {
+        margin-top: 35px;
+    }
+
+
+    .user_profile_infos{
+        font-size: 1rem !important;
+    }
+    .add_bg{
+        font-size: 1rem !important;
+    }
+    .label_userInfos{
+        font-size: 1rem !important;
+    }
+    .many_user_infos_item{
+        font-size: 0.8rem !important;
+    }
+    .HealthFormItem span {
+        font-size: 0.8rem !important;
+    }
+    .textareaFields textarea{
+        font-size: 0.8rem;
+    }
+
+}

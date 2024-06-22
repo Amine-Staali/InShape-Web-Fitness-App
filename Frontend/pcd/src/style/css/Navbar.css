@@ -1,0 +1,124 @@
+.navbar{
+  margin: auto auto 35px auto;
+  width: 80%;
+  cursor: default;
+  user-select: none;
+}
+
+.navbar-container{
+  position: relative;
+  width: 95%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-listItems{
+  position: relative;
+  list-style: none;
+  width: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbarItems{
+  margin-left: 20px;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 600;
+  transition: 0.2s all ease;
+  cursor: pointer;
+  &:hover{
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.759);
+  }
+}
+
+.Join{
+  color:#ff8000;
+  text-transform: uppercase;
+  &:hover{
+      text-shadow: 2px 2px 4px #ffba7560;
+    }
+}
+
+.sub-mini-logo{
+  font-family: 'Titillium Web', sans-serif;
+  color: #ff8000;
+}
+
+.mini-logo{
+  display: block;
+  font-family: 'Titillium Web', sans-serif;
+  color: #ffffff;
+  font-size: 1.5rem;
+  transition: 0.2s all ease;
+  cursor: pointer;
+  &:hover{
+      text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.759);
+  }
+}
+
+.lineDivider{
+  border-bottom: 2px solid #ffffff;
+  width: 100%;
+}
+.subLine{
+  position: absolute;
+  border-bottom: 5px solid #ff8000;
+  width: 22vw;
+  max-width: 150px;
+  min-width: 100px;
+  transform: translateY(-1.4px);
+}
+
+.burger-menu {
+  display: none;
+  font-size: 1.5em;
+  color: white;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 840px) {
+  .navbarItems{
+    margin-left: 0px;
+    border-bottom: 1px solid gray;
+    padding: 10px 0px;
+    width: 100%;
+  }
+  .navbar-listItems {
+    padding-left: 20px;
+    overflow: hidden;
+    display: flex;
+    align-content: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    position: fixed;
+    margin-top: 0px;
+    top: 0px;
+    right: -100%;
+    width: 35%;
+    height: 100vh;
+    background-color: #333;
+    z-index: 5;
+    transition: 0.7s ease all;  
+  }
+  .firstChild{
+    margin-top: 40px;
+  }
+
+  .show {
+    right: 0;
+  }
+
+  .burger-menu {
+    display: block;
+  }
+  .second-burger-menu{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+}
