@@ -1,5 +1,5 @@
 # InShape Web Fitness App
-
+ 
 ## Project Overview
 
 InShape is a web-based fitness application designed to help users achieve their fitness goals through personalized meal plans and workout programs. Users can create an account, fill out a health form, and receive customized fitness plans. The app also includes an innovative training page featuring an instructive video and a computer vision model that tracks and corrects user posture and movement during exercises.
